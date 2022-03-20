@@ -27,5 +27,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: latest
+          tags: "ansible-runner:latest"
           
