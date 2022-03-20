@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v2
     - name: Build the Docker image
-      uses: actions/checkout@v2
       run: docker build . --file Dockerfile --tag ansible-runner:$(date +%s)
 
     - name: Log in to Docker Hub
@@ -36,4 +36,3 @@ jobs:
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
-        
