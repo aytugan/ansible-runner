@@ -12,7 +12,7 @@ RUN apt -y update && \
 
 # Install python packages and delete pip cache
 RUN python3 -m pip install --upgrade pip && \
-    python3 -m pip install install ansible netaddr && \
+    python3 -m pip install install ansible netaddr dnspython && \
     rm -rf `pip3 cache dir`/*
 
 # Add ansible config to container 
