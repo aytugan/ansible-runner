@@ -19,4 +19,9 @@ RUN python3 -m pip install --upgrade pip && \
 RUN mkdir -p /etc/ansible
 ADD ansible.cfg /etc/ansible
 
+# Install aliyun cmdline tool
+ADD https://github.com/aliyun/aliyun-cli/releases/download/v3.0.111/aliyun-cli-linux-3.0.111-amd64.tgz /tmp/aliyun-cli-linux-amd64.tgz
+RUN cd /usr/local/bin/ && tar -xvzf /tmp/aliyun-cli-linux-amd64.tgz && \
+    rm /tmp/aliyun-cli-linux-amd64.tgz
+
 CMD ["/bin/bash"]
