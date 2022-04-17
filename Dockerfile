@@ -3,7 +3,7 @@ FROM python:3-slim
 
 # Configure TZDATA, install packages and clean apt cache
 RUN apt -y update && \
-    apt-get install -yq tzdata && \
+    apt-get install -yq tzdata unzip && \
     ln -fs /usr/share/zoneinfo/UTC /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata && \
     apt install -y --no-install-recommends python3 python3-pip ssh rsync git wireguard-tools && \
