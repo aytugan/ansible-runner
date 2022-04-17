@@ -1,12 +1,12 @@
-FROM python:3-slim
-#FROM ubuntu:latest
+FROM ubuntu:20.04
+#FROM python:3-slim
 
 # Configure TZDATA, install packages and clean apt cache
 RUN apt -y update && \
-    apt-get install -yq tzdata unzip && \
+    apt-get install -yq tzdata && \
     ln -fs /usr/share/zoneinfo/UTC /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata && \
-    apt install -y --no-install-recommends python3 python3-pip ssh rsync git wireguard-tools && \
+    apt install -y --no-install-recommends python3 python3-pip ssh rsync git wireguard-tools unzip && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
 
